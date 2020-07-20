@@ -1,0 +1,23 @@
+ $(document).ready(function () {
+           $("#<%=btnsendotp.ClientID%>").css("pointer-events", "none");
+            $("#CreateRestoreTicket").css("display", "block");
+            $("#ApproveTicket").css("display", "none");
+            $("#ApproveRestore").css("display", "none");
+            $("#<%=btnsendotp.ClientID%>").css("pointer-events", "none");
+            $("#<%=txtpuidemail.ClientID%>").keyup(function () {
+
+                var etxt = $(this).val();
+                if (etxt.length >= 4) {
+                    $("#<%=btnsendotp.ClientID%>").css("pointer-events", "auto");
+                    $("#<%=btnsendotp.ClientID%>").css("cursor", "pointer");
+                    var val = document.getElementById("ContentPlaceHolder1_txtpuidemail").value;
+                    document.getElementById("ContentPlaceHolder1_lblpuid").innerHTML = val;
+
+                } else {
+                    $("#<%=btnsendotp.ClientID%>").css("pointer-events", "none");
+                    document.getElementById("ContentPlaceHolder1_lblpuid").innerHTML = "";
+                    $("#<%=btnsendotp.ClientID%>").css("cursor", "not-allowed");
+                }
+
+            });
+        });
